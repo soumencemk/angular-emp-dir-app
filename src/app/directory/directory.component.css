@@ -1,0 +1,33 @@
+.full-width {
+    width: 100%;
+}
+
+.employee-card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.employee-card:hover {
+    transform: scale(1.05);
+}
+
+.delete-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.job-title-container {
+    display: flex;
+    align-items: center;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #3f51b5;
+    border-color: #3f51b5;
+    color: white;
+}
+
+.pagination .page-link {
+    cursor: pointer;
+}

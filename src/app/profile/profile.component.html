@@ -1,0 +1,29 @@
+<div class="container mt-4" *ngIf="employee">
+    <!-- Employee Profile Header -->
+    <div class="profile-header" style="text-align: center; margin-bottom: 20px;">
+        <h2>{{ employee.name }}'s Profile</h2>
+    </div>
+
+    <div class="profile-card" style="border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <!-- Employee Details -->
+        <div class="employee-details">
+            <h3 style="font-weight: bold; color: #3f51b5;">{{ employee.jobTitle }}</h3>
+            <mat-divider style="margin: 15px 0;"></mat-divider>
+            
+            <p style="font-size: 16px; color: #555;">
+                <strong>Department:</strong> {{ employee.department }}
+            </p>
+            <p style="font-size: 16px; color: #555;">
+                <strong>Contact:</strong> {{ employee.contact }}
+            </p>
+            <p style="font-size: 16px; color: #555;">
+                <strong>Location:</strong> {{ employee.location }}
+            </p>
+        </div>
+        <div class="button-container" style="text-align: center; margin-top: 20px;">
+            <button mat-raised-button color="accent" style="padding: 10px 24px; font-size: 16px;" routerLink="/directory">
+                <mat-icon>arrow_back</mat-icon> Back to Directory
+            </button>
+        </div>
+    </div>
+</div>

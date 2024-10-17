@@ -1,0 +1,68 @@
+<div class="container mt-4">
+    <!-- Export to CSV button for Admins -->
+    <div class="text-right mb-3">
+        <button *ngIf="authService.isAdmin()" mat-raised-button color="primary" (click)="downloadCSV()">
+            <mat-icon>download</mat-icon> Export to CSV
+        </button>
+    </div>
+
+    <!-- Search Field -->
+    <div class="row">
+        <div class="col-md-12 p-2">
+            <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Search by Name</mat-label>
+                <input matInput placeholder="Search employees by name" [(ngModel)]="searchQuery">
+                <mat-icon matSuffix>search</mat-icon>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <!-- Employee Cards List -->
+    <div class="row">
+        <div *ngFor="let employee of filteredEmployees" class="col-md-4 col-sm-6 col-lg-3">
+            <mat-card class="mat-elevation-z6 m-2 employee-card" (click)="viewProfile(employee.id)" style="cursor: pointer;">
+                <mat-card-header>
+                    <mat-card-title>{{ employee.name }}</mat-card-title>
+                    <mat-card-subtitle>{{ employee.department }}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <mat-divider></mat-divider>
+                    <div class="job-title-container mt-2">
+                        <mat-icon color="primary">work_outline</mat-icon>
+                        <span class="ml-2">{{ employee.jobTitle }}</span>
+                    </div>
+                </mat-card-content>
+                <mat-divider></mat-divider>
+
+                <!-- Delete icon for Admins -->
+                <mat-icon *ngIf="authService.isAdmin()" color="warn" class="delete-icon"
+                    (click)="$event.stopPropagation(); deleteEmployee(employee.id)">
+                    delete
+                </mat-icon>
+            </mat-card>
+        </div>
+    </div>
+
+    <!-- Pagination -->
+    <div class="d-flex justify-content-center mt-4" *ngIf="totalPages() > 1">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <!-- Previous Button -->
+                <li class="page-item" [class.disabled]="currentPage === 1" (click)="goToPage(currentPage - 1)">
+                    <a class="page-link">Previous</a>
+                </li>
+
+                <!-- Page Numbers -->
+                <li class="page-item" *ngFor="let page of getPagesArray()" [class.active]="page === currentPage"
+                    (click)="goToPage(page)">
+                    <a class="page-link">{{ page }}</a>
+                </li>
+
+                <!-- Next Button -->
+                <li class="page-item" [class.disabled]="currentPage === totalPages()" (click)="goToPage(currentPage + 1)">
+                    <a class="page-link">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

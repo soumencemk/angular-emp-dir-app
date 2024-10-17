@@ -1,0 +1,52 @@
+.slick-toolbar {
+    padding: 0 24px;
+    height: 56px;  /* Slightly slimmer than the default */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(90deg, #1976d2, #42a5f5); /* Smooth gradient for a slick look */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  /* Light shadow for depth */
+}
+
+.toolbar-title {
+    font-size: 22px;
+    font-weight: 500;
+    color: white;
+    letter-spacing: 1px; /* Subtle letter spacing */
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.toolbar-link {
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+    opacity: 0.9;
+    transition: opacity 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.toolbar-link:hover {
+    opacity: 1;
+}
+
+.profile-icon {
+    color: white;
+    opacity: 0.9;
+    transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.profile-icon:hover {
+    opacity: 1;
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+button[mat-menu-item] {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+mat-menu {
+    background-color: #f5f5f5;
+}
